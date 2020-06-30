@@ -40,7 +40,6 @@ var circle = {
         context.fill()
     }
 }
-
 var pallet= {
     x:canvas.width/2,
     y:canvas.height-10,
@@ -66,6 +65,38 @@ var pallet= {
         context.rect(this.x,this.y,this.width,this.height)
         context.fillStyle = 'black'
         context.fill()
+    },
+}
+var create = {
+    width:80,
+    height:30,
+    padding:5,
+    row:4,
+    column:5,
+    offsetTop:30,
+    offsetLeft:30,
+    // brick: []
+    brickX: this.width + this.padding+ this.offsetLeft,
+    brickY: this.height + this.padding+ this.offsetTop,
+    bricks : function() {
+        var brick = []
+        for (var r = 0; r < this.row; r++){
+        this.brick[r] = {}
+        for (var c = 0; c < this.column; c++ )
+        this.brick[r][c] = {}
+        }
+    },
+    draw: function() {
+        for(var r = 0; r < this.row; r++){
+            for(var c = 0; c< this.column; c++){
+                this.brick[r][c] = this.brickX
+                this.brick[r][c] = this.brickY
+                context.beginPath()
+                context.rect(this.brickX,this.brickY,this.width,this.height)
+                context.fillStyle = "#2b2d42"
+                context.fill()
+            }
+        }
     }
 }
 
@@ -91,14 +122,15 @@ function gameLoop(){
     context.clearRect(0, 0, canvas.width, canvas.height)
     window.onresize = function(){ 
     location.reload()
-     }
-
+    }
     circle.draw()
     circle.update()
     pallet.draw()
     pallet.update()
+    create.bricks()
+    create.draw()
 }
 var interval = setInterval(gameLoop, 15);
-gameLoop() //inifinte ierate
+gameLoop() //inifinte iterate
 
 
