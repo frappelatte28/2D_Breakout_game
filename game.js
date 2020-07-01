@@ -6,7 +6,7 @@ var height = window.innerHeight;
 canvas.width = width;
 canvas.height = height;
 
-canvas.style.background ="blue"
+canvas.style.background ="#197278"
 
 var rightPressed = false
 var leftPressed = false
@@ -15,6 +15,7 @@ const brickHeight = 30
 const col = 6 
 const row = 3
 var bricks
+var score = 0
 
 
 function giveMe2dArray(c){
@@ -30,7 +31,7 @@ var circle = {
     y: canvas.height-30,
     dx:2,
     dy:-2,
-    radius:20, 
+    radius:13, 
     update:function(){
         this.x+= this.dx//velocity update
         this.y+= this.dy 
@@ -54,6 +55,10 @@ var circle = {
                     if(this.x > b.x && this.x < b.x + b.width && this.y - this.radius > b.y&& this.y - this.radius < b.y + b.height) {
                         this.dy = -this.dy
                         b.status = 0
+                        score++
+                        if(score == col*row){
+                            alert("CONGRATULATIONS")
+                        }
                    }
                }
             }
@@ -84,7 +89,7 @@ var circle = {
 var pallet = {
     x:canvas.width/2,
     y:canvas.height-20,
-    width:100,
+    width:140,
     height:20,
     dx:10,
 
@@ -107,7 +112,7 @@ var pallet = {
     draw:function(){
         context.beginPath()
         context.rect(this.x,this.y,this.width,this.height)
-        context.fillStyle = 'black'
+        context.fillStyle = "197278"
         context.fill()
     }
 }
@@ -122,7 +127,7 @@ class Brick {
     }
     draw(context){
         if(this.status){
-            context.fillStyle = "#0095DD"
+            context.fillStyle = "#c44536"
             context.fillRect(this.x ,this.y ,this.width ,this.height)
             context.fill()
         }
@@ -136,7 +141,7 @@ class Brick {
         for(let i = 0 ; i < col; i++ ){
             for( let j = 0; j < row; j++){
             let x = i*(brickwidth + 10)
-            let y = j*(brickHeight+10)
+            let y =60 + j*(brickHeight+10)
             bricks[i][j] = new Brick(brickwidth, brickHeight, x, y, )
             }
         }
@@ -149,6 +154,11 @@ class Brick {
              bricks[i][j].draw(context)
             }
         }
+    }
+    function drawScore() {
+        context.font = "16px Arial"
+        context.fillStyle = "#772e25"
+        context.fillText("Score: "+score,40, 40)
     }
 
 window.addEventListener('keydown',keyDownHandler)
@@ -180,6 +190,7 @@ function gameLoop(){
     pallet.draw()
     pallet.update()
     drawBricks()
+    drawScore()
 
 } 
 var interval = setInterval(gameLoop, 1000/60);
