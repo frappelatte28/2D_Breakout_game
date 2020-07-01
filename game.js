@@ -64,8 +64,12 @@ var circle = {
              this.x +this.dx < pallet.x + pallet.width && 
              this.y + this.dy > height - pallet.height- this.radius )
            
-        )
-           this.dy = -this.dy - 2
+        ){
+            this.y-=5
+            this.dy = -this.dy 
+
+        }
+         
    }
 
    ,
@@ -82,16 +86,19 @@ var pallet = {
     y:canvas.height-20,
     width:100,
     height:20,
+    dx:10,
+
     update: function(){
+
+
         if(rightPressed){
-            this.x+= 10
-            console.log("right")
+            this.x+= this.dx
             if (this.x + this.width > canvas.width){
                 this.x = canvas.width - this.width
             }
         }
         else if(leftPressed){
-        this.x+= -10
+        this.x-= this.dx
         if(this.x < 0){
         this.x = 0
         }
