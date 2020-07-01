@@ -57,7 +57,10 @@ var circle = {
                         b.status = 0
                         score++
                         if(score == col*row){
-                            alert("CONGRATULATIONS")
+                            alert("CONGRATULATIONS,YOU WIN!!")
+                            document.location.reload()
+                            clearInterval(interval)
+
                         }
                    }
                }
