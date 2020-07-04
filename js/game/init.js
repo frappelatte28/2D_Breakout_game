@@ -58,9 +58,9 @@ var gameButton
     circle.dy = -2 
 
 
-    backgroudMusic  = new Audio('../../assets/sounds/breakout.mp3') 
-    collisionPalletMusic = new Audio ('../../assets/sounds/bleep.mp3')
-    gameoverMusic = new Audio ('../../assets/sounds/solid.mp3')
+    backgroudMusic  = new Audio('https://raw.githubusercontent.com/frappelatte28/2D_Breakout_game/master/assets/sounds/breakout.mp3') 
+    collisionPalletMusic = new Audio ('https://raw.githubusercontent.com/frappelatte28/2D_Breakout_game/master/assets/sounds/bleep.mp3')
+    // gameoverMusic = new Audio ('../../assets/sounds/solid.mp3')
 
     gameButton = document.querySelector('.intro button')
 
