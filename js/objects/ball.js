@@ -1,8 +1,8 @@
 const circle = {
     x: undefined,
     y: undefined,
-    dx:2,
-    dy:-2,
+    dx:undefined,
+    dy:undefined,
     radius:13, 
 
     update:function(){
@@ -15,9 +15,13 @@ const circle = {
             this.dy = -this.dy
         }
         else if( this.y > canvas.height ){
+            // gameoverMusic.play()
+            backgroudMusic.pause()
             alert("GAME OVER")
-            window.location.reload()
+            // window.location.reload()
             clearInterval(interval)
+            initGame()
+            GameStart()
         }
 
         for(let i = 0 ; i < col; i++ ){
@@ -29,6 +33,8 @@ const circle = {
                         this.dy = -this.dy
                         b.status = 0
                         score++
+                        this.dy+=.6
+                        collisionPalletMusic.play()
                         if(score == col*row){
                             alert("CONGRATULATIONS,YOU WIN!!")
                             document.location.reload()

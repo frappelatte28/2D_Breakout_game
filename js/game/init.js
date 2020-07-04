@@ -1,28 +1,90 @@
-var  canvas = document.getElementById('canvas1');
-var context = canvas.getContext('2d')
-var width = window.innerWidth ;
-var height = window.innerHeight;
+var  canvas 
+var context 
+var width 
+var height
 
-canvas.width = width;
-canvas.height = height;
-canvas.style.background ="#197278"
 
-var rightPressed = false
-var leftPressed = false
-const brickwidth = width/6
-const brickHeight = 30
-const  col = 6 
-var  row = 3
-var bricks ;
-var score = 0
 
-pallet.x = width/2 
-pallet.y = height - 20
+var rightPressed 
+var leftPressed 
+var  brickwidth 
+var brickHeight
+var  col 
+var  row 
+var bricks 
+var score 
 
-circle.x = width/6 
-circle.y = height/2
+// pallet.x = width/2 
+// pallet.y = height - 20
 
-CreateBricks()
+// circle.x = width/6 
+// circle.y = height/2
+
+ var interval
+
+var backgroudMusic 
+var  collisionPalletMusic
+var gameoverMusic
+
+var gameButton 
+
+ 
+ function initGame(){
+
+    canvas = document.getElementById('canvas1');
+    context = canvas.getContext('2d')
+    width = window.innerWidth ;
+    height = window.innerHeight;
+
+    canvas.width = width;
+    canvas.height = height;
+    canvas.style.background ="#197278"
+
+    rightPressed = false
+    leftPressed = false
+    brickwidth = width/6
+    brickHeight = 30
+    col = 6 
+    row = 3
+    bricks ;
+    score = 0
+
+    pallet.x = width/2 
+    pallet.y = height - 20
+
+    circle.x = width/2
+    circle.y = height/2
+    circle.dx= 2 
+    circle.dy = -2 
+
+
+    backgroudMusic  = new Audio('../../assets/sounds/breakout.mp3') 
+    collisionPalletMusic = new Audio ('../../assets/sounds/bleep.mp3')
+    gameoverMusic = new Audio ('../../assets/sounds/solid.mp3')
+
+    gameButton = document.querySelector('.intro button')
+
+ }
+
+// sound.addEventListener('loadeddata',handleOnload )
+
+// function handleOnload(){
+//     console.log("laoded  in time " , Date.now() - t )
+    
+// }
+
+
+
+
+
+
+
+    window.addEventListener('beforeunload', function (e) {
+        //  confirm("asdfaslkdfk")
+        e.returnValue = "asdkfjkasdfk "
+        
+  });
+
 
 
 

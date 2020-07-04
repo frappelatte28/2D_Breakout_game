@@ -1,8 +1,19 @@
 
 
+// GameStart()
+initGame()
+gameButton.addEventListener('click',handleClick)
 
+function  handleClick(){
+    document.querySelector('.intro').style.display = "none"
+    GameStart()
+}
+function GameStart(){
+    CreateBricks()
+    backgroudMusic.play()
 
-var interval = setInterval(gameLoop, 1000/60);
+     interval = setInterval(gameLoop, 1000/60);
+}
 
 function gameLoop(){
     context.clearRect(0, 0, canvas.width, canvas.height)

@@ -14,12 +14,47 @@
             top:0px;
             left:0px;
         }
+        .intro{
+            width:400px;
+            height: 300px;
+            position: absolute;
+            background-color: antiquewhite;
+            z-index: 2;
+            top:50%;
+            left:50%;
+            transform: translate(-50% , -50%);
+            border-radius: 50%;
+
+
+        }
+
+        .intro button{
+           
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50% , -50%);
+            background-color:cadetblue;
+            padding:5px ;
+        }
+
+        .intro h1{
+            color:cadetblue;
+            margin-top:15% ;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
+    <div class="intro"> 
+        <h1> 2D BreakOut Game</h1>
+        <button>click here play game</button>
+    </div>
     <canvas id= 'canvas1' ></canvas>
 
 </body>
+
 <script src = "./js/helpers/helper.js"></script>
 
 <script src = './js/objects/bricks.js'></script>
@@ -30,5 +65,5 @@
 <script src = "./js/game/init.js"></script>
 <script src = "js/controllers/keyPressControllers.js"></script> 
 
-<script src = "./js/game/game.js"></script>
+<script src = "./js/game/game.js"></script> -->
 </html>
